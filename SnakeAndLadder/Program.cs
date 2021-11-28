@@ -7,7 +7,8 @@ namespace SnakeAndLadder
         static void Main(string[] args)
         {
             Console.WriteLine("================ Welcome To Snake And Ladder Game ================");
-            Console.ReadKey();
+            clsSnakeAndLadder clsSnakeAndLadder = new clsSnakeAndLadder();
+            clsSnakeAndLadder.StartGame();
         }
     }
 }
