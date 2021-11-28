@@ -30,14 +30,16 @@ namespace SnakeAndLadder
         {
             Console.WriteLine("Game Started");
             PrintPlayerPosition();
-            while (true)
+            bool startGame = true;
+            while (startGame)
             {
                 RollADie();
                 CheckLadderOrSnake();
-                PrintPlayerPosition();
                 if (CheckWonOrNot())
-                    break;
+                    startGame = false;
+                PrintPlayerPosition();
             }
+            Console.WriteLine("Player Won!");
         }
 
         private void RollADie()
@@ -73,9 +75,13 @@ namespace SnakeAndLadder
 
         private bool CheckWonOrNot()
         {
-            if (PlayerPosition >= 100)
+            if (PlayerPosition > 100)
             {
-                Console.WriteLine("Player Won!");
+                Console.WriteLine("Rolled bigger number");
+                PlayerPosition -= RolledDie;
+            }
+            else if (PlayerPosition == 100)
+            {
                 return true;
             }
             return false;
