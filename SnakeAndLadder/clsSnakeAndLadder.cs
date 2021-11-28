@@ -11,7 +11,7 @@ namespace SnakeAndLadder
         private Random generateNum;
         private Dictionary<int, int> dictSnakePos;
         private Dictionary<int, int> dictLadders;
-        private int GetPlayerPosition { get { return PlayerPosition; } }
+        private int NoOfTimesDiceRolled;
 
         public clsSnakeAndLadder()
         {
@@ -39,6 +39,7 @@ namespace SnakeAndLadder
                     startGame = false;
                 PrintPlayerPosition();
             }
+            Console.WriteLine("No of times dice rolled to win the game: {0}", NoOfTimesDiceRolled);
             Console.WriteLine("Player Won!");
         }
 
@@ -47,6 +48,7 @@ namespace SnakeAndLadder
             RolledDie = generateNum.Next(7);
             PlayerPosition += RolledDie; 
             Console.WriteLine("Rolled Die: {0}", RolledDie);
+            NoOfTimesDiceRolled++;
         }
 
         private void PrintPlayerPosition()
